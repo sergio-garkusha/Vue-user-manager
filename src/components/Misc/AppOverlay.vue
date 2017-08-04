@@ -15,6 +15,12 @@ export default {
 </script>
 
 <style lang="css">
+.active-left-place #magnet-overlay {
+  visibility: visible;
+  z-index: 99;
+  opacity: .6
+}
+
 #magnet-overlay {
   position: fixed;
   top: 0;

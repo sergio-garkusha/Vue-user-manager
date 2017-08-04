@@ -28,6 +28,12 @@ export default {
 </script>
 
 <style lang="css">
+.active-left-place #main-sidebar {
+  left: 0;
+  visibility: visible;
+  overflow-y: auto;
+}
+
 #main-sidebar {
   width: 400px;
   height: 100%;

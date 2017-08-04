@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <AppHeader />
-    <Home :title="tab_name" />
+    <AppContent :title="tab_name" />
     <AppSidebar />
     <AppOverlay />
   </div>
@@ -10,7 +10,7 @@
 <script>
 import { mapState } from 'vuex'
 import AppHeader from './components/Header'
-import Home from './components/Content/Home'
+import AppContent from './components/Content'
 import AppSidebar from './components/Sidebar'
 import AppOverlay from './components/Misc/AppOverlay'
 
@@ -19,7 +19,7 @@ export default {
     'tab_name'
   ]),
   components: {
-    AppHeader, AppSidebar, AppOverlay, Home
+    AppHeader, AppSidebar, AppOverlay, AppContent
   }
 }
 </script>
@@ -63,7 +63,7 @@ table .action-separator {
   display: inline-block;
   width: 1px;
   background-color: #ccc;
-  margin: 0 5px 0;
+  margin: 0 5px 0 7px;
 }
 
 thead th {
@@ -99,7 +99,6 @@ tbody td {
 
 .wrapper {
   min-height: 100%;
-  /*color: #3d4255;*/
   color: rgba(0, 0, 10, 0.65);
 }
 
@@ -181,125 +180,5 @@ tbody td {
 
 .wrapper .material-buttons ul li:hover:last-child:after {
   content: "\29C9"
-}
-
-.modal > div {
-  padding: 35px
-}
-
-.modal .modal-header h3 {
-  margin: 0
-}
-
-.modal .modal-header button {
-  position: absolute;
-  top: 0;
-  right: 15px;
-  padding: 0;
-  border: 0;
-  color: #a9a9a9;
-  background-color: transparent;
-  font-size: 32px;
-  cursor: pointer;
-  outline: none;
-  transition: color .3s linear
-}
-
-.modal .modal-header button:hover {
-  color: #6b6b6b
-}
-
-.modal .form {
-  margin: 30px 0
-}
-
-.modal .form label {
-  display: block;
-  margin: 0 0 5px;
-  font-size: 14px
-}
-
-.modal .form input, .modal .form textarea {
-  border: 0;
-  border-bottom: 1px solid #e0e0e0;
-  min-height: 30px;
-  margin: 10px 0 25px;
-  font-size: 14px
-}
-
-.modal footer {
-  text-align: right
-}
-
-.modal footer button {
-  display: inline-block;
-  margin: 0 3px;
-  padding: 10px;
-  border: 0;
-  background-color: #d3d3d3;
-  cursor: pointer;
-  outline: none;
-  background-color: #fff;
-  transition: all .9s cubic-bezier(.23, 1, .32, 1) 0;
-  border-radius: 2px
-}
-
-.modal footer button:first-child {
-  background-color: rgba(0, 112, 255, .25)
-}
-
-.modal footer button:first-child:focus, .modal footer button:first-child:hover {
-  background-color: rgba(0, 112, 255, .4);
-  box-shadow: inset 1px 1px 5px rgba(0, 0, 0, .15)
-}
-
-.active-left-place #main-sidebar {
-  left: 0;
-  visibility: visible;
-  overflow-y: auto;
-}
-
-.active-left-place #magnet-overlay {
-  visibility: visible;
-  z-index: 99;
-  opacity: .6
-}
-
-.main-footer {
-  position: absolute;
-  bottom: 90px;
-  width: 100%;
-  text-align: center;
-}
-
-.main-footer p {
-  margin-left: -165px;
-  font-size: 12px;
-  font-style: italic;
-  color: #3d4255;
-}
-
-.main-footer a {
-  text-decoration: none;
-}
-
-.main-footer a svg {
-  width: 100px;
-  bottom: -6px;
-  position: absolute;
-  margin-left: 5px;
-}
-
-.main-footer a svg path {
-  transition: all .4s linear;
-}
-
-.main-footer a svg:hover path {
-  fill: #008bd2;
-}
-
-.main-footer a svg:hover path:last-child {
-  fill: inherit;
-  stroke: #008bd2;
 }
 </style>
