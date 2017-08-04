@@ -8,17 +8,17 @@
       <section class="dynamic-block">
         <ul class="tabs-nav">
           <li v-for="tab in tabs"
-              :key="tab.id"
-              :class="['tab', { 'active': tab.id === activeTab }]"
-              @click="makeActive(tab.id)"
+            :key="tab.id"
+            :class="['tab', { 'active': tab.id === activeTab }]"
+            @click="makeActive(tab.id)"
           >
             {{ tab.title }}
           </li>
           <div class="tabs-highlighter"
-               :style="{
-                width: `${highlighterWidth}px`,
-                transform: `translate3d(${highlighterPosition}px, 0px, 0px)`
-              }"
+            :style="{
+              width: `${highlighterWidth}px`,
+              transform: `translate3d(${highlighterPosition}px, 0px, 0px)`
+            }"
           >
           </div>
         </ul>
@@ -27,10 +27,10 @@
 
         <ul class="tabs-content">
           <li v-for="tab in tabs"
-              :key="tab.id"
-              :class="['tab-container', { 'active': tab.id === activeTab }]"
+            :key="tab.id"
+            :class="['tab-container', {'active': tab.id === activeTab}]"
           >
-            {{ tab.content }}
+            <component :is="tab.content" :key="tab.id"/>
           </li>
         </ul>
       </section>
@@ -40,6 +40,9 @@
 </template>
 
 <script>
+import UserTable from './UserTable'
+import UserCreator from './UserCreator'
+
 export default {
   name: 'home',
   props: ['title'],
@@ -52,21 +55,26 @@ export default {
         {
           id: 0,
           title: 'List of users',
-          content: 'List of users content'
+          content: 'user-table'
         },
         {
           id: 1,
           title: 'User creator',
-          content: 'Tab 2 Content'
-        }
+          content: 'user-creator'
+        },
+        {
+          id: 2,
+          title: 'Another tab with long-long-long title and absolutely no purpose',
+          content: ''
+        },
       ]
     }
   },
   mounted: function () {
-    this.setHighlighterWidth()
+    this.setHighlighterVisualParams()
   },
   updated: function () {
-    this.setHighlighterWidth()
+    this.setHighlighterVisualParams()
   },
   methods: {
     makeActive (id) {
@@ -76,13 +84,16 @@ export default {
           this.$store.commit('setTabName', {name: tab.title})
       })
     },
-    setHighlighterWidth () {
+    setHighlighterVisualParams () {
       const tabsWrapperRect = this.$el.querySelector('.tabs-nav').getBoundingClientRect()
       const tab = this.$el.querySelector('.tab.active')
       const tabRect = tab.getBoundingClientRect()
       this.highlighterPosition = tabRect.left - tabsWrapperRect.left
       this.highlighterWidth = tab.offsetWidth
     }
+  },
+  components: {
+    UserTable, UserCreator
   }
 }
 </script>
@@ -123,7 +134,7 @@ export default {
 }
 
 .tabs-content {
-  padding: 25px 0 0;
+  padding: 15px 0 0;
 }
 .tab-container {
   display: none;
@@ -148,7 +159,7 @@ export default {
   box-sizing: border-box;
   background-color: hsla(0, 0%, 100%, .8);
   box-shadow: 0 0 4px rgba(0, 0, 0, .05), 0 4px 8px rgba(0, 0, 0, .1);
-  padding: 25px;
+  padding: 25px 25px 55px;
 }
 
 @media screen and (max-width:850px) {

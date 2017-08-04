@@ -1,8 +1,6 @@
-# user-manager
+# User Manager
 
 > A Vue.js trial project
-
-## Build Setup
 
 ``` bash
 # install dependencies

@@ -45,7 +45,7 @@ export default {
 <style scoped>
 .app-main-header {
   position: fixed;
-  z-index: 2;
+  z-index: 10;
   display: flex;
   width: 100%;
   height: 55px;

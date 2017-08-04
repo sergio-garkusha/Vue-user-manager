@@ -44,6 +44,41 @@ body.active-left-place {
   overflow: hidden;
 }
 
+table {
+  width: 100%;
+  font-size: 0.8em;
+  border-collapse: collapse;
+}
+table a {
+  color: #ff5e62;
+  text-decoration: none;
+  opacity: 1;
+  transition: opacity .3s linear;
+}
+table a:hover {
+  opacity: 0.8;
+}
+table .action-separator {
+  height: 0.8em;
+  display: inline-block;
+  width: 1px;
+  background-color: #ccc;
+  margin: 0 5px 0;
+}
+
+thead th {
+  background: #f7f7f7;
+  padding: 20px 10px;
+  position: relative;
+}
+
+tbody tr {
+  border-bottom: 1px solid #e9e9e9;
+}
+tbody td {
+  padding: 20px 10px;
+}
+
 .column {
   flex: 1;
 }
@@ -59,13 +94,13 @@ body.active-left-place {
 #magnet-overlay,
 #main-sidebar,
 .active-left-place #magnet-overlay {
-  -webkit-transition: all .5s ease-in-out;
   transition: all .5s ease-in-out;
 }
 
 .wrapper {
   min-height: 100%;
-  color: #3d4255;
+  /*color: #3d4255;*/
+  color: rgba(0, 0, 10, 0.65);
 }
 
 .wrapper .panel {
