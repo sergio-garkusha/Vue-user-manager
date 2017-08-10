@@ -1,7 +1,9 @@
 <template>
   <div id="app">
-    <AppHeader />
-    <AppContent :title="tab_name" />
+    <div class="main-stage">
+      <AppHeader />
+      <AppContent :title="tab_name" />
+    </div>
     <AppSidebar />
     <AppOverlay />
   </div>
@@ -35,13 +37,24 @@ body {
   min-width: 400px;
   font-family: 'Roboto', sans-serif;
   background-color: #e9e9e9;
-  padding-top: 55px;
   margin: 0;
-  height: 93%;
+}
+
+::selection {
+  background-color: #ffc1c2;
 }
 
 body.active-left-place {
   overflow: hidden;
+}
+
+body.active-left-place .main-stage {
+  transform: translateX(460px);
+}
+
+.main-stage {
+  padding-top: 55px;
+  transition: transform .3s linear;
 }
 
 table {
@@ -75,6 +88,10 @@ thead th {
 tbody tr {
   border-bottom: 1px solid #e9e9e9;
 }
+tbody tr:hover {
+  background: linear-gradient(to right, #f3f3f3, #f7f7f7);
+}
+
 tbody td {
   padding: 20px 10px;
 }

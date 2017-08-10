@@ -13,6 +13,7 @@
     "lint": "standard"
   },
   "dependencies": {
+    "vee-validate": "^2.0.0-rc.8",
     "vue": "^2.3.3",
     "vue-router": "^2.6.0",
     "vue-table-component": "^1.2.0",

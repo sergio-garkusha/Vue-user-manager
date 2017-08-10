@@ -29,21 +29,20 @@ export default {
 
 <style lang="css">
 .active-left-place #main-sidebar {
-  left: 0;
-  visibility: visible;
   overflow-y: auto;
+  transform: translateX(0);
 }
 
 #main-sidebar {
   width: 400px;
-  height: 100%;
+  height: 100vh;
   position: fixed;
   top: 0;
-  left: -400px;
   background: #fff;
   padding: 30px;
   z-index: 999;
-  visibility: hidden
+  transform: translateX(-460px);
+  transition: all .3s linear;
 }
 
 #main-sidebar .header-section h2, #main-sidebar .header-section h3 {

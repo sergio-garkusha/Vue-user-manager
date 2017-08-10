@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import VeeValidate from 'vee-validate'
 import { TableComponent, TableColumn } from 'vue-table-component'
-
 import App from './App'
 // import router from './router'
 
@@ -10,6 +10,7 @@ Vue.config.productionTip = false
 Vue.component('table-component', TableComponent)
 Vue.component('table-column', TableColumn)
 
+Vue.use(VeeValidate)
 Vue.use(Vuex)
 
 /* eslint-disable no-new */

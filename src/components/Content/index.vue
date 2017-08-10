@@ -42,6 +42,7 @@
 <script>
 import UserTable from './UserTable'
 import UserCreator from './UserCreator'
+import UselessTab from './UselessTab'
 
 export default {
   name: 'home',
@@ -65,7 +66,7 @@ export default {
         {
           id: 2,
           title: 'Another tab with long-long-long title and absolutely no purpose',
-          content: ''
+          content: 'useless-tab'
         },
       ]
     }
@@ -93,7 +94,7 @@ export default {
     }
   },
   components: {
-    UserTable, UserCreator
+    UserTable, UserCreator, UselessTab
   }
 }
 </script>
@@ -181,7 +182,14 @@ export default {
     min-width: 97.3vw
   }
   .user-manager-app ul li {
-    font-size: 20px!important
+    font-size: 20px !important;
+  }
+  .tabs-nav .tab {
+    max-width: 100% !important;
+    width: 100%;
+    overflow: hidden;
+    text-align: center;
+    padding: 15px 30px;
   }
 }
 
@@ -332,5 +340,14 @@ input, textarea {
   font-family: Roboto, sans-serif;
   box-sizing: border-box;
   width: 100%
+}
+
+@media screen and (max-width: 905px) {
+  .tabs-nav .tab {
+    max-width: 200px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
 }
 </style>
