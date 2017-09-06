@@ -2,7 +2,7 @@
   <div id="app">
     <div class="main-stage">
       <AppHeader />
-      <AppContent :title="tab_name" />
+      <router-view :title="tab_name"></router-view>
     </div>
     <AppSidebar />
     <AppOverlay />
@@ -12,16 +12,16 @@
 <script>
 import { mapState } from 'vuex'
 import AppHeader from './components/Header'
-import AppContent from './components/Content'
+
 import AppSidebar from './components/Sidebar'
 import AppOverlay from './components/Misc/AppOverlay'
 
 export default {
-  computed: mapState([
-    'tab_name'
-  ]),
+  computed: mapState('title', {
+    tab_name: state => (state.tab_name),
+  }),
   components: {
-    AppHeader, AppSidebar, AppOverlay, AppContent
+    AppHeader, AppSidebar, AppOverlay
   }
 }
 </script>
