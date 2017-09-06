@@ -1,9 +1,11 @@
 import Vue from 'vue'
+import App from './App'
+import router from './router'
+
 import Vuex from 'vuex'
 import VeeValidate from 'vee-validate'
+
 import { TableComponent, TableColumn } from 'vue-table-component'
-import App from './App'
-// import router from './router'
 
 Vue.config.productionTip = false
 
@@ -15,9 +17,20 @@ Vue.use(Vuex)
 
 /* eslint-disable no-new */
 const store = new Vuex.Store({
+  modules: {
+    title: {
+      namespaced: true,
+      tab_name: 'List of Users'
+    },
+    user: {
+      id: null,
+      fullName: '',
+      email: '',
+      company: ''
+    }
+  },
   state: {
-    is_sidebar_visible: false,
-    tab_name: 'List of Users'
+    is_sidebar_visible: false
   },
   mutations: {
     toggleSidebar (state, e) {
@@ -26,6 +39,9 @@ const store = new Vuex.Store({
     },
     setTabName (state, payload) {
       state.tab_name = payload.name
+    },
+    setUserPageData (state, payload) {
+      state.userData = payload
     }
   }
 })
@@ -33,7 +49,7 @@ const store = new Vuex.Store({
 new Vue({
   el: '#root',
   store,
-  // router,
+  router,
   template: '<App/>',
   components: { App }
 })
@@ -49,4 +65,6 @@ new Vue({
   }
 })()
 
-window.store = store
+if (process.env.NODE_ENV !== 'production') {
+  window.store = store
+}
