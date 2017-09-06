@@ -4,14 +4,18 @@
       <p>
         The purpose of this tab is to show the ability of tab's adoption of styles,
         so technically the name of it is correct. However, I may put something
-        meaningful here.
+        meaningful here later.
       </p>
     </div>
     <div class="column">
       <h4>Credits:</h4>
-      <p>
-
-      </p>
+      <ul>
+        <li><a href="//ru.vuejs.org/">vue</a></li>
+        <li><a href="//vuex.vuejs.org/">vuex</a></li>
+        <li><a href="//router.vuejs.org/">vue-router</a></li>
+        <li><a href="//github.com/spatie/vue-table-component">vue-table-component</a></li>
+        <li><a href="//vee-validate.logaretm.com/index.html#about">vee-validate</a></li>
+      </ul>
     </div>
   </div>
 </template>
