@@ -48,7 +48,19 @@ export default {
       }
     },
     handleEditUser (id) {
+      this.$data.columns.forEach(el => {
+        if (el.id == id) {
+          delete el.actions
+          delete el.vueTableComponentInternalRowId
 
+          this.$store.commit('setUserPageData', el)
+
+          this.$router.push({
+            name: 'user',
+            params: { id: el.id },
+          })
+        }
+      })
     },
     handleDeleteUser (id) {
       this.$data.columns.forEach((el, idx, arr) => {
