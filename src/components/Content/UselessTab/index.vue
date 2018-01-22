@@ -1,10 +1,9 @@
 <template lang="html">
   <div class="wrapper">
     <div class="column">
+      <h4>Why?</h4>
       <p>
-        The purpose of this tab is to show the ability of tab's adoption of styles,
-        so technically the name of it is correct. However, I may put something
-        meaningful here later.
+        A purpose of this tab is to demonstrate a tabs responsivness.
       </p>
     </div>
     <div class="column">
